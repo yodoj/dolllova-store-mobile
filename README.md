@@ -8,74 +8,74 @@ NPM : 2306165692
 
 *Stateless widget* adalah *widget* yang bersifat statis atau tidak akan berubah. Sedangkan *stateful widget* adalah *widget* yang bersifat dinamis atau dapat berubah. Berikut adalah perbedaannya:
 
-* *Stateless widget*
+1. *Stateless widget*
 - Tidak memiliki *state*.
 - Hanya berubah jika ada *external events* di *parent*.
 - Biasanya digunakan untuk tampilan.
 
-* *Stateful widget*
+2. *Stateful widget*
 - Ada *widget*state** yang menyertai.
 - Selama *app* dijalankan, *state* berubah-ubah.
 - Biasanya digunakan untuk menyimpan data *widget* tersebut.
 
 **2.  Sebutkan widget apa saja yang kamu gunakan pada proyek ini dan jelaskan fungsinya.**
 
-* MaterialApp
+1. MaterialApp
 - Widget utama yang menjadi root dari aplikasi Flutter.
 - Mengatur tema, judul, dan home dari aplikasi.
 
-* Scaffold
+2. Scaffold
 - Memberikan struktur dasar untuk halaman, termasuk AppBar, body, dan elemen lainnya. 
 - Memudahkan pengaturan *layout* halaman.
 
-* AppBar
+3. AppBar
 - Menyediakan area di bagian atas layar untuk menampilkan judul aplikasi dan navigasi. 
 - Menciptakan kesan yang konsisten di seluruh aplikasi.
 
-* Padding
+4. Padding
 - Memberikan *spacing* di sekitar *widget* lainnya.
 - Memberikan *margin* di sekitar *body* halaman.
 
-* ListView
+5. ListView
 - Menampilkan daftar elemen secara vertikal yang dapat digulir.
 - Mengakomodasi elemen yang mungkin lebih banyak dari yang dapat ditampilkan di layar.
 
-* Row
+6. Row
 - Menyusun *child* secara horizontal. Dalam proyek ini, digunakan untuk menampilkan tiga InfoCard.
 
-* InfoCard
+7. InfoCard
 - Menampilkan informasi seperti NPM, nama, dan kelas.
 
-* SizedBox
+8. SizedBox
 - Memberikan *spacing* antara elemen.
 
-* Center
+9. Center
 - Menempatkan teks dan *grid item* di tengah.
 
-* Text
+10. Text
 - Menampilkan teks.
 
-* GridView
+11. GridView
 - Menampilkan *child** dalam bentuk *grid*. Dalam proyek ini, digunakan untuk menampilkan ItemCard dalam tiga kolom.
 
-* Container
+12. Container
 - Mengatur *padding, margin*, dan memberikan warna atau dekorasi pada elemen.
 
-* BoxDecoration
+13. BoxDecoration
 - Memberikan warna *background, border*, dan sudut melengkung.
 
-* Material
+14. Material
 -  Mengatur warna *background* dan sudut melengkung pada ItemCard.
 
-* InkWell
+15. InkWell
 - Memberi efek gelombang ketika ditekan.
 - Digunakan dalam ItemCard untuk merespons interaksi pengguna.
 
-* SnackBar
+16. SnackBar
 - Menampilkan pesan sementara di bagian bawah layar. 
 - Digunakan untuk memberi *feedback* kepada pengguna saat ItemCard ditekan.
 
-* Icon
+17. Icon
 - Menampilkan ikon
 - Digunakan dalam ItemCard untuk menampilkan ikon sesuai dengan item.
 
