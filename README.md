@@ -1,4 +1,5 @@
 Nama: Nadira Aliya Nashwa
+
 NPM : 2306165692
 
 **ESSAY TUGAS 7: ELEMEN DASAR FLUTTER**
@@ -12,13 +13,10 @@ Perbedaan:
 *Stateless widget*
 
 - Tidak memiliki *state*
-
 - Hanya berubah jika ada *external events* di *parent*
-
 - Biasanya digunakan untuk tampilan
 
 *Stateful widget*
-
 - Ada *widget state* yang menyertai
 
 - Selama *app* dijalankan, *state* berubah-ubah
