@@ -18,14 +18,15 @@ NPM : 2306165692
 - Selama *app* dijalankan, *state* berubah-ubah.
 - Biasanya digunakan untuk menyimpan data *widget* tersebut.
 
+
 **2.  Sebutkan widget apa saja yang kamu gunakan pada proyek ini dan jelaskan fungsinya.**
 
 1. MaterialApp
-- Widget utama yang menjadi root dari aplikasi Flutter.
-- Mengatur tema, judul, dan home dari aplikasi.
+- *Widget* utama yang menjadi *root* dari aplikasi *Flutter*.
+- Mengatur tema, judul, dan *home* dari aplikasi.
 
 2. Scaffold
-- Memberikan struktur dasar untuk halaman, termasuk AppBar, body, dan elemen lainnya. 
+- Memberikan struktur dasar untuk halaman, termasuk *AppBar, body*, dan elemen lainnya. 
 - Memudahkan pengaturan *layout* halaman.
 
 3. AppBar
@@ -79,16 +80,92 @@ NPM : 2306165692
 - Menampilkan ikon
 - Digunakan dalam ItemCard untuk menampilkan ikon sesuai dengan item.
 
+
 **3. Apa fungsi dari setState()? Jelaskan variabel apa saja yang dapat terdampak dengan fungsi tersebut.**
 
-setState() merupakan fungsi yang memperbarui suatu *state* ke objek komponen. Variabel yang terdampak yaitu:
+``setState()`` merupakan fungsi yang memperbarui suatu *state* ke objek komponen. Variabel yang terdampak yaitu:
 - Semua variabel yang disimpan dalam *state*
 - *Child* yang dipengaruhi oleh *state* di dalam komponen *parent*nya. 
 
 Hal ini karena setiap kali ada perubahan pada satu atau lebih properti di dalam objek *state*, komponen akan di-*render* ulang dengan nilai-nilai *state* terbaru
 
-4. Jelaskan perbedaan antara const dengan final.
- 
-5. Jelaskan bagaimana cara kamu mengimplementasikan checklist-checklist di atas.
 
-https://id.legacy.reactjs.org/docs/faq-state.html
+**4. Jelaskan perbedaan antara const dengan final.**
+
+1. *Const*
+- *Const* merupakan variabel yang nilainya harus ditetapkan saat kompilasi dan tidak dapat diubah saat *runtime*. 
+- *Const* digunakan saat nilainya diketahui saat kompilasi dan tidak pernah berubah. Biasanya digunakan untuk *widget* yang *static*
+
+2. *Final*
+- *Final* merupakan variabel yang nilainya dapat ditetapkan saat *runtime*, tetapi setelah ditetapkan nilainya tidak dapat diubah.
+- *Final* harus digunakan secara *default* untuk setiap variabel yang baru ditentukan untuk menghindari penetapan ulang variabel yang tidak diinginkan.
+ 
+
+**5. Jelaskan bagaimana cara kamu mengimplementasikan checklist-checklist di atas.**
+
+Untuk mengimplementasikan semua *checklist*, pastikan telah menginstall *Flutter* di laptop. Disini, saya membuat sebuah program *Flutter* baru bernama *Dollova Store* yang menjual beberapa produk boneka. Untuk itu, saya membuat proyek  *Flutter* dollova_store dengan menjalankan *command* berikut di direktori di mana saya menyimpan proyek *Flutter*.
+
+```flutter create dollova_store```
+
+Kemudian saya membuat 3 *buttons* yaitu "Lihat Daftar Produk" yang bewarna ungu muda, "Tambah Produk" bewarna hijau muda, dan "Logout" yang bewarna merah terang dengan membuat *list of* ``ItemHomepage`` yang saya tambahkan pada *class* ``ItemHomepage``. Berikut adalah potongan kodenya pada menu.dart:
+
+```
+final List<ItemHomepage> items = [
+      ItemHomepage("Lihat Daftar Produk", Icons.shopping_bag, Colors.purple[300]!),
+      ItemHomepage("Tambah Produk", Icons.add, Colors.green[300]!),
+      ItemHomepage("Logout", Icons.logout, Colors.redAccent),
+     ];
+```
+
+Sebelumnya, saya telah membuat *class* bernama  ``ItemHomepage`` di menu.dart yang berisi atribut-atribut dari *buttons*. Disini atributnya adalah nama, ikon, dan warna. 
+
+```
+// Model yang mendefinisikan item pada halaman utama, berisi nama, ikon, dan warna.
+class ItemHomepage {
+    final String name; // Nama dari item yang akan ditampilkan
+    final IconData icon; // Ikon untuk mewakili item
+    final Color color; // Warna background item
+    // Konstruktor untuk menerima nilai nama, ikon, dan warna item.
+     ItemHomepage(this.name, this.icon, this.color);
+ }
+ ```
+
+Agar warna-warna yang berbeda pada setiap *button* dapat dilihat pada web, saya menambahkan potongan kode ini di menu.dart.
+```
+@override
+  Widget build(BuildContext context) {
+    return Material(
+      // Menentukan warna latar belakang dari tema aplikasi.
+      color: item.color,
+      // Membuat sudut kartu melengkung.
+      borderRadius: BorderRadius.circular(12),
+      ...
+```
+Pada kode ini, ``item.color`` berfungsi nuntuk menentukan warna *background* dari *widget* Material seperti warna pada *buttons* yang berbeda-beda.
+
+Untuk memuculkan *snackbar* setiap kali *button* ditekan, saya menambahkan potongan kode berikut ini pada menu.dart:
+
+```
+  @override
+  Widget build(BuildContext context) {
+    return Material(
+      ...
+      child: InkWell(
+        // Aksi ketika kartu ditekan.
+        onTap: () {
+          // Menampilkan pesan SnackBar saat kartu ditekan.
+          ScaffoldMessenger.of(context)
+            ..hideCurrentSnackBar()
+            ..showSnackBar(
+              SnackBar(content: Text("Kamu telah menekan tombol ${item.name}!"))
+            );
+        },
+        ...
+```
+Pada kode ini, ``item.name`` berisi nama *button* ada di web sehingga pesan pada *snackbar* akan muncul sesuai *button* yang ditekan.
+
+### Referensi
+
+Gerken, M. (2022, December 6). Static, final, const, dynamic, var - differences and similarities. Flutter Clutter. Retrieved November 5, 2024, https://www.flutterclutter.dev/flutter/basics/2022-12-06-static-final-const-dynamic-var/ 
+
+State komponen. React. (n.d.). Retrieved November 5, 2024, https://id.legacy.reactjs.org/docs/faq-state.html 
