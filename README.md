@@ -169,3 +169,99 @@ Pada kode ini, ``item.name`` berisi nama *button* ada di web sehingga pesan pada
 Gerken, M. (2022, December 6). Static, final, const, dynamic, var - differences and similarities. Flutter Clutter. Retrieved November 5, 2024, https://www.flutterclutter.dev/flutter/basics/2022-12-06-static-final-const-dynamic-var/ 
 
 State komponen. React. (n.d.). Retrieved November 5, 2024, https://id.legacy.reactjs.org/docs/faq-state.html 
+
+
+## ESSAY TUGAS 8: Flutter Navigation, Layouts, Forms, and Input Elements
+
+**1. Apa kegunaan const di Flutter? Jelaskan apa keuntungan ketika menggunakan const pada kode Flutter. Kapan sebaiknya kita menggunakan const, dan kapan sebaiknya tidak digunakan?**
+
+Fungsi *const* di Flutter adalah untuk menunjukkan bahwa suatu nilai atau *widget* bersifat konstan atau tidak berubah. Keuntungan dari penggunaan *const* adalah mengurangi penggunaan memori, performa lebih baik, dan aplikasi lebih responsif. *Const* digunakan ketika nilai variabel diketahui saat waktu kompilasi dan nilainya tidak pernah berubah, seperti pada widget *text, icon, container, color.*
+
+**2. Jelaskan dan bandingkan penggunaan Column dan Row pada Flutter. Berikan contoh implementasi dari masing-masing layout widget ini!**
+
+*Row* dan *column* berguna untuk mengatur tata letak di dalam aplikasi. *Row* digunakan untuk menyusun *widget* secara horizontal dan *column* digunakan untuk menyusun *widget* secara vertikal. Berikut contoh implementasinya.
+
+**Contoh implementasi *row***
+```
+Row(
+  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+  children: [
+    Image.asset('images/pic1.jpg'),
+    Image.asset('images/pic2.jpg'),
+    Image.asset('images/pic3.jpg'),
+  ],
+);
+```
+Pada kode ini, gambar akan disusun secara horizontal dari kiri ke kanan.
+
+**Contoh implementasi *column***
+
+```
+Column(
+  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+  children: [
+    Image.asset('images/pic1.jpg'),
+    Image.asset('images/pic2.jpg'),
+    Image.asset('images/pic3.jpg'),
+  ],
+);
+```
+Pada kode ini, gambar akan disusun secara vertikal dari atas ke bawah.
+
+**3. Sebutkan apa saja elemen input yang kamu gunakan pada halaman form yang kamu buat pada tugas kali ini. Apakah terdapat elemen input Flutter lain yang tidak kamu gunakan pada tugas ini? Jelaskan!**
+
+Elemen *input* yang saya gunakan untuk tugas ini adalah `TextFormField` yang digunakan untuk menerima data produk, deskripsi, harga, dan *stock*. Adapun elemen *input* Flutter lain yang tidak saya gunakan untuk tugas ini adalah:
+1. `DropdownButtonFormField`, biasanya menmapilkan beberapa opsi yang dapat dipilih pengguna.
+
+2. `Checkbox`, *input* berupa pilihan yang dapat dipilih lebih dari 1 opsi.
+
+3. `Radio `, *input* berupa pilihan ganda.
+
+4. `Switch`, *input* pilihan yang bersifat *on/off.*
+
+5. `DatePicker` atau `TimePicker`, *input* untuk memilih tanggal atau waktu.
+
+6. `Slider`, *input* untuk memilih nilai dalam rentang tertentu.
+
+**4. Bagaimana cara kamu mengatur tema (theme) dalam aplikasi Flutter agar aplikasi yang dibuat konsisten? Apakah kamu mengimplementasikan tema pada aplikasi yang kamu buat?**
+
+Untuk mengatur tema dalam aplikasi Flutter agar tampilannya konsisten, saya menggunakan ThemeData yang didefinisikan secara global di file main.dart. Pada aplikasi Dollova Store, saya mengatur warna tema utama menjadi warna pink agar sesuai dengan konsep aplikasi yang saya buat. Untuk mengimplementasikan tema, saya melakukan *import material dart* pada file-file yang saya buat .
+
+`import 'package:flutter/material.dart';`
+
+Untuk mengatur tampilan warna agar sesuai tema, saya gunakan kode berikut:
+
+`Theme.of(context).colorScheme.primary,`
+
+**5. Bagaimana cara kamu menangani navigasi dalam aplikasi dengan banyak halaman pada Flutter??**
+
+Untuk mengimplementasikan hal tersebut, saya menggunakan *drawer menu*, yaitu menu yang muncul di sisi kiri layar yang berisi navigasi ke halaman lain. Jadi saya membuat left_drawer.dart dan mengimport halaman-halaman yang ingin dinavigasi, dalam hal ini, saya menambahkan navigasi ke `MyHomePage` dan `ProductEntryFormPage`. Lalu saya melakukan *routing* agar halaman-halaman tersebut dapat terakses. 
+
+Berikut kode untuk *routing* ke `MyHomePage`:
+
+```
+onTap: () {
+      Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+            builder: (context) => MyHomePage(),
+          ));
+    },
+  )
+```
+
+Berikut kode untuk *routing* ke `ProductEntryFormPage`:
+
+```
+ Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => ProductEntryFormPage(),
+                )
+            );
+```
+### Referensi
+
+Collins, K. (2021, July 7). The flutter “const” keyword demystified. Medium. Retrieved November 10, 2024, https://medium.com/flutter-community/the-flutter-const-keyword-demystified-c8d2a2609a80 
+
+Layouts in flutter. Flutter. (n.d.). Retrieved November 10, 2024, https://docs.flutter.dev/ui/layout 
