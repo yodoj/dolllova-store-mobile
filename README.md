@@ -233,7 +233,7 @@ Untuk mengatur tampilan warna agar sesuai tema, saya gunakan kode berikut:
 
 `Theme.of(context).colorScheme.primary,`
 
-**5. Bagaimana cara kamu menangani navigasi dalam aplikasi dengan banyak halaman pada Flutter??**
+**5. Bagaimana cara kamu menangani navigasi dalam aplikasi dengan banyak halaman pada Flutter?**
 
 Untuk mengimplementasikan hal tersebut, saya menggunakan *drawer menu*, yaitu menu yang muncul di sisi kiri layar yang berisi navigasi ke halaman lain. Jadi saya membuat left_drawer.dart dan mengimport halaman-halaman yang ingin dinavigasi, dalam hal ini, saya menambahkan navigasi ke `MyHomePage` dan `ProductEntryFormPage`. Lalu saya melakukan *routing* agar halaman-halaman tersebut dapat terakses. 
 
