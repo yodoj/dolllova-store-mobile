@@ -265,3 +265,36 @@ Berikut kode untuk *routing* ke `ProductEntryFormPage`:
 Collins, K. (2021, July 7). The flutter “const” keyword demystified. Medium. Retrieved November 10, 2024, https://medium.com/flutter-community/the-flutter-const-keyword-demystified-c8d2a2609a80 
 
 Layouts in flutter. Flutter. (n.d.). Retrieved November 10, 2024, https://docs.flutter.dev/ui/layout 
+
+## ESSAY TUGAS 9: Integrasi Layanan Web Django dengan Aplikasi Flutter
+
+**1. Jelaskan mengapa kita perlu membuat model untuk melakukan pengambilan ataupun pengiriman data JSON? Apakah akan terjadi error jika kita tidak membuat model terlebih dahulu?**
+
+Membuat model untuk pengambilan atau pengiriman data JSON itu penting karena model membantu memastikan struktur dan format data selalu konsisten. Dengan model, kita bisa memvalidasi data, menangkap *error* lebih cepat, dan mempermudah pengelolaan data kompleks. Jika tidak membuat model, risiko terjadi *error* seperti data tidak sesuai format, field hilang, atau tipe data salah jadi lebih besar.
+
+**2. Jelaskan fungsi dari library http yang sudah kamu implementasikan pada tugas ini**
+
+*Library http* ini berfungsi untuk melakukan *HTTP Request,*, mengirimkan data ke *server*, mengambil respons dari *server*, Pada tugas ini, berguna untuk mengambil daftar produk dan menyimpan produk baru ke server.
+
+**3. Jelaskan fungsi dari CookieRequest dan jelaskan mengapa instance CookieRequest perlu untuk dibagikan ke semua komponen di aplikasi Flutter**
+
+*CookieRequest* berfungsi  untuk menangani autentikasi berbasis cookie dalam aplikasi Flutter, terutama untuk berkomunikasi dengan server Django. *CookieRequest* perlu untuk dibagikan ke semua komponen di aplikasi Flutter karena setiap bagian aplikasi dapat memanfaatkan informasi autentikasi yang sama.
+
+**4. Jelaskan mekanisme pengiriman data mulai dari input hingga dapat ditampilkan pada Flutter.**
+
+Pengguna memasukkan data di form Flutter.Kemudian data  dikirim ke server menggunakan *HTTPRequest* dalam format JSON. Lalu  Django menerima, memverifikasi, dan menyimpan data ke *database*. Data diambil kembali melalui *request* GET oleh Flutter. Lalu data ditampilkan di aplikasi.
+
+**5. Jelaskan mekanisme autentikasi dari login, register, hingga logout. Mulai dari input data akun pada Flutter ke Django hingga selesainya proses autentikasi oleh Django dan tampilnya menu pada Flutter.**
+
+Pada *register*, pengguna mengirim data pendaftaran melalui Flutter lalu Django membuat akun dan menyimpan data ke *database*. Flutter menerima konfirmasi bahwa pendaftaran berhasil. Kemudian pada login, Flutter mengirim data login ke Django. Untuk menampilkan menu, Flutter menggunakan *cookie* sesi untuk mengakses data lain dari *server*. Data ditampilkan di aplikasi sesuai dengan sesi pengguna. Jika ingin logout, Flutter mengirimkan *request* logout ke Django. Django menghapus sesi pengguna.
+
+**6. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step! (bukan hanya sekadar mengikuti tutorial).**
+
+Untuk mengimplementasikan register, saya menambahkan fungsi register  di views.py pada Django. Kemudian saya membuat file register.dart pada Flutter. Disini, saya menggunakan http.post untuk mengirim data ke Django. Untuk membuat login, saya menambahkan fungsi login di views.py lalu membuat file login.dart di Flutter. Untuk mengintegrasikan autentikasi antara Flutter dan Django, saya membuat *Django app* bernama *authentication*. Kemudian menggunakan CookieRequest untuk semua request setelah login. Membuat model kustom sesuai dengan proyek aplikasi Django, saya menggunakan *website* Quicktype. Pada tahap ini, saya menyesuaikan data dengan JSON. Dalam membuat halaman yang berisi daftar semua item, saya membuat file list_productentry.dart yang dapat menampilkan daftar
+produk yang juga menampilkan nama, harga, dan dekripsi. Dalam membuat halaman detail item, saya menambahkan navigasi dari daftar item ke halaman detail. Untuk menambahkan filter item berdasarkan pengguna, saya menambahkan filter di *endpoint* Django. 
+
+### Referensi
+
+A., F. (2024, November 15). Apa Itu Cookies? Arti Dan Fungsi cookies pada browser. Hostinger Tutorial. Retrieved November 20, 2024, https://www.hostinger.co.id/tutorial/cookies-adalah 
+
+Kagel, A. (n.d.). What is the relation between a data format like JSON and a relational model? how can I convert between them?. Quora. Retrieved November 20, 2024, https://www.quora.com/What-is-the-relation-between-a-data-format-like-JSON-and-a-relational-model-How-can-I-convert-between-them 
