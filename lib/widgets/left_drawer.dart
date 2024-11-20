@@ -50,7 +50,7 @@ class LeftDrawer extends StatelessWidget {
               },
             ),
             ListTile(
-              leading: const Icon(Icons.shopping_bag),
+              leading: const Icon(Icons.add),
               title: const Text('Tambah Produk'),
               // Bagian redirection ke ProductEntryFormPage
               onTap: () {
@@ -63,7 +63,7 @@ class LeftDrawer extends StatelessWidget {
               },
             ),
             ListTile(
-              leading: const Icon(Icons.add_reaction_rounded),
+              leading: const Icon(Icons.shopping_bag),
               title: const Text('Daftar Produk'),
               onTap: () {
                   // Route menu ke halaman produk

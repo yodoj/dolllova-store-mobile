@@ -51,7 +51,7 @@ class ItemCard extends StatelessWidget {
                 )
             );
           }
-          else if (item.name == "Lihat Produk") {
+          else if (item.name == "Lihat Daftar Produk") {
             Navigator.push(context,
                 MaterialPageRoute(
                     builder: (context) => const ProductEntryPage()

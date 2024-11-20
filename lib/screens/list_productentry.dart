@@ -64,7 +64,7 @@ class _ProductEntryPageState extends State<ProductEntryPage> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        "${snapshot.data![index].fields.product}",
+                        "${snapshot.data![index].fields.name}",
                         style: const TextStyle(
                           fontSize: 18.0,
                           fontWeight: FontWeight.bold,
@@ -75,9 +75,8 @@ class _ProductEntryPageState extends State<ProductEntryPage> {
                       const SizedBox(height: 10),
                       Text("${snapshot.data![index].fields.price}"),
                       const SizedBox(height: 10),
-                      Text("${snapshot.data![index].fields.amount}"),
-                      const SizedBox(height: 10),
-                      Text("${snapshot.data![index].fields.time}")
+                      Text("${snapshot.data![index].fields.stock}"),
+                  
                     ],
                   ),
                 ),
